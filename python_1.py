@@ -1,5 +1,4 @@
-# string = input("Enter the the string statement :")
-string = "Balu is my Balu"
+string = input("Enter the the string statement :")
 print("The main string statement :",string)
 
 # number of characters
