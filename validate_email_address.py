@@ -14,6 +14,4 @@ elif user_input == 'yes':
         file_write = open(r"email_txt.txt","a")
         file_write.write(out.group()+"\n")
         file_write.close()
-        # file_read=open(r"email_txt.txt")
-        # print(file_read.read())
-        # fr.close()
+
