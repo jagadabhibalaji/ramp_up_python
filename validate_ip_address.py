@@ -9,8 +9,7 @@ if user_input == 'no':
 
 if user_input == 'yes':
     # it should be contain four octes
-    # input_ip_address = input("Enter the ip address, each octet should be within 0-255 :")
-    input_ip_address = "1.1.1.1"
+    input_ip_address = input("Enter the ip address, each octet should be within 0-255 :")
     pattern = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
     ip_address = re.match(pattern, input_ip_address)
 
