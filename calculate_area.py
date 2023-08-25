@@ -1,31 +1,38 @@
 import math
 class Shape():
-    def calculate_area(self):
+    def calculate_area(self,*args):
         pass
 
 class Square(Shape):
-    def calculate_area(self,side_of_length):
-        return side_of_length**2
+    def calculate_area(self,*args):
+        if "side_length" in args:
+            side_of_length = float(input("enter side_of_length value :"))
+            print(f"square area: {side_of_length ** 2}")
+            return
+        else:
+            super().calculate_area(*args)
 
-class triangle(Shape):
-    def calculate_area(self,height,base):
-        return 0.5*height*base
+class triangle(Square):
+    def calculate_area(self,*args):
+        if "base" in args[0] and "height" in args[0]:
+            base=float(input("enter base value :"))
+            height=float(input("enter height value :"))
+            print(f"traingle area: {0.5*base*height}")
+            return
+        else:
+            super().calculate_area(*args)
 
-class circle(Shape):
-    def calculate_area(self,radius):
-        return math.pi*radius**2
+class circle(triangle):
+    def calculate_area(self,*args):
+        if "radius" in args:
+            radius=float(input("enter radius value :"))
+            print(f"circle area: { math.pi*radius**2}")
+            return
+        else:
+            super().calculate_area(*args)
 
-side_length = float(input("Enter the side length of the square : "))
-sq = Square()
-print("Area of square :", sq.calculate_area(side_length))
 
-height = float(input("Enter the height of the triangle : "))
-base = float(input("Enter the base base of the triangle : "))
-
-tr = triangle()
-print("Area of triangle :", tr.calculate_area(height, base))
-
-radius = float(input("Enter the radius of the circle : "))
-cr = circle()
-print("Area of circle :", cr.calculate_area(radius))
-
+cir= circle()
+d={"square":"side_length","circle":"radius","triangle":["base","height"]}
+shape=input("Enter shape :")
+area=cir.calculate_area(d[shape])
